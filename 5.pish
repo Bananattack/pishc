@@ -27,5 +27,5 @@ begin
     
     if x then x := x; { Real as if statement conditional is bad. }
     while x do x := x; { Real as while loop conditional is bad. }
-    for x := 1 to 3 do writereal(x) { Real in for loop is bad. }
+    for x := 1 to 3 do writereal(x) { Variable of type real as iterator in for loop is bad. }
 end.
