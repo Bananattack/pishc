@@ -40,7 +40,7 @@ Instructions' in the previous section.
 
 Once compiled, the application has the name 'pishc'.
 
-The application has the following options (some of which currently do nothing):
+The application has the following options:
 
 Usage: ./pishc [-flag] [... filename]
   flags:
