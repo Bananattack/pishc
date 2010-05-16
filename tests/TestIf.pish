@@ -1,0 +1,23 @@
+program TestIfStatement(input, output);
+var message : array[1 .. 256] of char;
+var x : integer;
+begin
+    x := 5;
+    writestr("BEFORE: x = ");
+    writeint(x);
+    writechar('\n');
+    
+    if x = 2 then begin
+        message := 'IF TRIGGERED\n';
+        x := 9
+    end else begin
+        message := 'ELSE TRIGGERED\n';
+    	x := 3
+    end;
+    	
+    writestr(message);
+    
+    writestr('AFTER: x = ');
+    writeint(x);
+    writechar('\n')
+end.

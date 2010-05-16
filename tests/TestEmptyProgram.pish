@@ -1,0 +1,8 @@
+{ Empty test }
+program TestEmptyProgram(input, output);
+(* This program will begin to do {nothing} at * * * *  all. *)
+begin 
+    (*
+    *)
+end.
+

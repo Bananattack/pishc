@@ -1,0 +1,12 @@
+program TestForLoop(input, output);
+var a, b : integer;
+var x : integer;
+
+
+begin
+    x := 3;
+    while x = 3 do begin
+        writechar('G'); writechar('o'); writechar('t'); writechar(' '); writechar('h'); writechar('e'); writechar('r'); writechar('e'); writechar('\n')
+    end;
+    x := 9
+end.

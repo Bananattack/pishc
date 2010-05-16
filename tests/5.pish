@@ -1,0 +1,79 @@
+program example(input, ouput);
+    const PI = 3.14159;
+       NEGATIVE_PI = -PI;
+       START_NUM = -4;
+       END_NUM = -START_NUM;
+       MIGHT_ERROR_HERE = 56 * 3656 + 2346 / 3; { ERROR: Constants are very restrictive in what sort of expressions are allowed. This expression can fail at a syntactic level. }
+       TEXT = 'I saw this in an example so I copied it.';
+
+    { Record definition, seems simple enough. }
+    type Polygon = record
+        x, y; { ERROR: no field type for x, y. }
+        { Wait. Oh god no. Array of record? Nooooo }
+        vertices : array [START_NUM .. END_NUM] of record
+            data : array [1 .. 3] of REAL;
+	end;
+    end;
+
+    { I HOPE YOU CHECK CASE INSENSITIVITY LATER. }
+    var polygons : array [1 .. 2.1 / 12] of POLYGON; { ERROR: Array dimensions should be limited to constant integer expressions. }
+    x, y : Integer;
+
+    procedure waffles() : integer; forward; { ERROR: Procedures cannot have return values (this includes forward declarations of them, obviously) }
+
+    { forward declaration }
+    procedure gcd(); forward;
+
+    procedure swap(a, b : Integer);
+        var tmp : Integer;
+        
+        { ERROR: nested function with a trailing comma }
+        procedure foo(a, );
+            { nested function in nested function }
+            procedure bar();
+                { ERROR: Return type on procedure. This is bad }
+                procedure barf() : CHAR;
+                begin
+			var zzz : INTEGER { ERROR: variable declaration is not allowed in compound statements }
+                end;
+            begin
+            end;
+        begin
+        end;
+    begin
+        tmp := a;
+        a := b;
+        b := tmp 
+    end;
+
+    function helloWorld (); forward; { ERROR: No return value specified }
+
+    function gcd(a, b : Integer) : Integer;
+    begin
+        if b = 0 then gcd := a
+        else gcd := gcd(b, a mod b)
+    end;
+begin
+    polygon[1].vertices[END_NUM].data[1] := 1;
+    polygon[2].vertices[-START_NUM].data[2] := -4;
+    polygon[1].vertices[-START_NUM + 2].data[3] := 7456;
+    
+    polygon[2].vertices[2].data[1] := gcd ( x, y );
+    polygon[1].vertices[0].data[2] := 4 + 5 + ; { ERROR: Unexpected semicolon }
+    polygon[2].vertices[3].data[3] := 12;
+    polygon[1].vertices[1,4].data[2] := 12; { ERROR: We aren't allowed to have a comma in a subscript }
+    swap ( gcd ( x , y ) , ); { ERROR: Trailing comma }
+
+    swap ( x, y ) := PI; { ERROR: Function having a value assigned to it }
+    10 := a; { ERROR: Numerical value on LHS of assignment statement }
+
+    for I := -10 to do { ERROR: Expected upper value for the range of the for loop }
+    begin
+    end;
+    
+    polygon     [    2     ] .   vertices [    { Does whitespace and comments kill me? } 1 ].data [ 1 ] := PI;
+	read(x, y);
+	if y > x then
+        swap(x, y);
+	write(gcd(x, y))
+end.

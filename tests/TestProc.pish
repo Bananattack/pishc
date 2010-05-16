@@ -1,0 +1,68 @@
+program TestProc(input, output);
+    function square(x : integer) : integer;
+    begin
+        square := x * x
+    end;
+    
+    function squarereal(x : real) : real;
+    begin
+        squarereal := x * x
+    end;
+    
+    function put(s : array[1 .. 256] of char) : char;
+    begin
+        writestr(s)
+    end;
+    
+    
+
+    procedure swap(x, y : integer);
+        var temp : integer;
+    begin
+        begin
+            writestr('x = ');
+            writeint(x);
+            writestr(' y = ');
+            writeint(y);
+            writestr(' temp = ');
+            writeint(temp);
+            writechar('\n')
+        end;
+        temp := x;
+        x := y;
+        y := temp;
+        begin
+            writestr('x = ');
+            writeint(x);
+            writestr(' y = ');
+            writeint(y);
+            writestr(' temp = ');
+            writeint(temp);
+            writechar('\n')
+        end;
+        writestr('swap complete.\n')
+    end;
+    
+    var a, b : integer;
+begin
+    a := tointeger(squarereal(66.5555));
+    b := square(42);
+    put('Passing a string to a function, woo!\n');
+    begin
+        writestr('a = ');
+        writeint(a);
+        writestr(' b = ');
+        writeint(b);
+        writechar('\n')
+    end;
+    swap(a, b);
+    begin
+        writestr('a = ');
+        writeint(a);
+        writestr(' b = ');
+        writeint(b);
+        writechar('\n')
+    end;
+    
+    writestr('exiting.\n')
+end.

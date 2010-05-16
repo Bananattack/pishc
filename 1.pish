@@ -1,0 +1,113 @@
+program ThisOneCompiles(Input, Output);
+    const
+        {{ Real constants. }}
+        PI = 3.141519;
+        NEGATIVE_PI = -PI;
+        {{ Array bounds (integers) }}
+        START_INDEX = -5;
+        END_INDEX = 9;
+        {{ References to builtin constants }}
+        YES = true;
+        NO = false;        
+        {{ Text }}
+        TEXT = 'This is a horrible \'Hello world\' in Pish';
+    type
+        Polygon = record
+            vertices : array [START_INDEX .. END_INDEX] of record
+                x, y, z : real;
+            end;
+            
+        end;
+        int = integer;
+        porygon = Polygon; 
+    var
+        polygons : array [1 .. 5] of PORYGON;
+        pory : PORYGON;
+        x, y, z : real;
+        i : int;
+        ch : char;
+        message : array [1 .. 256] of char;
+        
+        
+    procedure printString(s : array[1 .. 256] of char); forward;
+        
+    procedure printChar(ch : char);
+    begin
+        writechar(ch)
+    end;
+    
+    procedure printString(s : array[1 .. 256] of char);
+        var x : integer;
+    begin
+        x := 1;
+        y := 2;
+        while x <= 256 do begin
+            if s[x] <> 0 then begin
+                printChar(s[x])
+            end;
+            x := x + 1
+        end
+    end;
+    
+    procedure printLine(s : array[1 .. 256] of char);
+    begin
+        printString(s);
+        printChar('\n')
+    end;
+    
+    procedure factorial(n : int, result : int);
+        function fact(n : int) : int;
+            const TRIVIAL = 1; { local constant. }
+        begin
+            {{ Trivial case. }}
+            if n <= TRIVIAL then fact := 1
+            {{ Recursive case. }}
+            else fact :=  n * fact(n - 1)
+        end;
+    begin
+        result := fact(n) { pass-by-reference }
+    end;
+    
+    
+    var test : array[1 .. 5] of array[1 .. 5] of integer;
+    procedure passingArrayFunc(a : array [1 .. 5] of array[1 .. 5] of integer);
+    begin
+    end;
+    
+begin
+    for i := 1 to 5 do begin
+        pory := polygons[i];
+        if i mod 2 then begin
+            pory.vertices[0].x := 32 / 2.1234; { type promotion! }
+            pory.vertices[-4].y := 3;
+            pory.vertices[2].z := 3;
+            
+            printLine('ODD NUMBER');
+            writereal(i);
+            printLine('')
+        end else begin
+            printLine('EVEN NUMBER');
+            writeint(tointeger(toreal(i) + 0.5));
+            printLine('')
+        end
+    end;
+    
+    x := 1 div (4 * 3 + 2);
+    x := (x >= 3);
+    
+    polygons[2].vertices[3].x := 4; 
+    
+    while x < 5 do begin
+        writeint(tointeger(x));
+        printstring('! = ');
+        factorial(tointeger(x), i);
+        writeint(i);
+        printLine('');
+        x := x + 1;
+        z := 2;
+        y := (y / 4 * 324 + 1 = z) and (5)
+    end;
+        
+    message := Text;
+    printLine(message)
+end.

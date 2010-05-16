@@ -1,0 +1,14 @@
+program TestVarsTypesConstants(input, ouput);
+{ multiple declarations on the same line, separated by commas. neat, huh? }
+var x, y, z : integer, v : real;
+{ you can also separate by semi-colon. }
+var a : integer; b, c, d, e : integer; f : integer;
+
+type number = integer;
+student = record
+	id : integer;
+end;
+const ANDY = 5;
+begin
+
+end.

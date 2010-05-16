@@ -1,0 +1,4 @@
+ - Declarations/Variables/Constants can appear in any order (we will semantically verify that they are placed in the correct table later on) - but our tests assume that they are in the correct order (re: specifications)
+ - Variable return types are not validated until semantic checks (that way type aliases for standard types are accepted too)
+ - String literals with single quotes are values assigned to an array of characters
+ - Identifiers can have underscores

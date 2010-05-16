@@ -1,0 +1,143 @@
+{ Hunter-prey. A silly simulation of several hunters going after a single prey. Uses records, arrays, and other fun. }
+program HunterPrey(input, output);
+    const
+        W = 30;
+        H = 13;
+        HUNTER_COUNT = 25;
+        RAND_MAX = 2147483647;
+    type Board = record 
+        grid : array [1 .. W] of array [1 .. H] of integer;
+    end;
+    type Point = record
+        x, y : integer;
+    end;
+    { types and vars are in separate namespaces }
+    var board : Board;
+    var hunters : array [1 .. HUNTER_COUNT] of Point;
+    var prey : Point;
+    var won : integer;
+    
+    function getTile(i, j : integer) : char;
+        var ch : char;
+        var h : integer;
+    begin
+        if board.grid[i][j] then
+            ch := '.'
+        else
+            ch := '_';
+        for h := 1 to HUNTER_COUNT do begin
+            if (i = hunters[h].x) and (j = hunters[h].y) then
+            begin
+                ch := 'H'
+            end
+        end;
+        if (i = prey.x) and (j = prey.y) then begin
+            if ch = 'H' then
+                ch := 'O'
+            else
+                ch := 'P'
+        end;
+        getTile := ch
+    end;
+    
+    procedure printBoard();
+        var i, j : integer;
+    begin
+        for j := 1 to H do begin
+            for i := 1 to W do begin
+                writechar(getTile(i, j))
+            end;
+            writechar('\n')
+        end
+    end;
+    
+    procedure update();
+        var i, j : integer;
+    begin
+        won := true;
+        for i := 1 to HUNTER_COUNT do begin
+            if hunters[i].x < prey.x then
+                hunters[i].x := hunters[i].x + 1
+            else if hunters[i].x > prey.x then
+                hunters[i].x := hunters[i].x - 1
+            else if hunters[i].y < prey.y then
+                hunters[i].y := hunters[i].y + 1
+            else if hunters[i].y > prey.y then
+                hunters[i].y := hunters[i].y - 1;
+            
+            for j := 1 to HUNTER_COUNT do begin
+                if  (hunters[i].x <> hunters[j].x)
+                    + (hunters[i].y <> hunters[j].y)
+                then
+                    won := false
+            end;
+            if  (hunters[i].x <> prey.x)
+                + (hunters[i].y <> prey.y)
+            then
+                won := false
+        end
+    end;
+    
+    var i, j : integer;
+    var c : char;
+    var done : integer;
+begin
+    won := false;
+    for i := 1 to HUNTER_COUNT do begin
+        hunters[i].x := 0;
+        hunters[i].y := 0
+    end;
+    for i := 1 to HUNTER_COUNT do begin
+        done := false;
+        while not done do begin
+            hunters[i].x := tointeger((random() / 2147483648.0) * W) + 1;
+            hunters[i].y := tointeger((random() / 2147483648.0) * H) + 1;
+            done := true;
+            for j := 1 to HUNTER_COUNT do begin
+                if  (i <> j)
+                    and (hunters[i].x = hunters[j].x)
+                    and (hunters[i].y = hunters[j].y)
+                then
+                    done := false
+            end
+        end;
+        writestr('(');
+        writeint(hunters[i].x);
+        writestr(', ');
+        writeint(hunters[i].y);
+        writestr(')\n')
+    end;
+    done := false;
+    while not done do begin
+        prey.x := tointeger((random() / 2147483648.0) * W) + 1;
+        prey.y := tointeger((random() / 2147483648.0) * H) + 1;
+        done := true;
+        for j := 1 to HUNTER_COUNT do begin
+            if  (prey.x = hunters[j].x)
+                and (prey.y = hunters[j].y)
+            then
+                done := false
+        end
+    end;
+    writestr('(');
+    writeint(prey.x);
+    writestr(', ');
+    writeint(prey.y);
+    writestr(')\n');
+    
+    for j := 1 to H do begin
+        for i := 1 to W do begin
+            board.grid[i][j] := random() mod 2
+        end
+    end;
+    
+    while not won do begin
+        printBoard();
+        update();
+        writestr('\n');
+        for i := 1 to 25000 do begin end
+    end;
+    printBoard()
+end.
+    
+    

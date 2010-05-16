@@ -1,0 +1,85 @@
+------------------------------------
+pishc
+
+A compiler for the Pish language.
+CIS*4650 W10 at University of Guelph
+
+Andrew Crowell
+Andrew Judd
+------------------------------------
+
+
+
+Description
+-----------
+Pish is made-up language that is basically a limited subset of Pascal features,
+with some variations. The specifications are weird and ambiguous in spots, but
+besides a few warts, the language was... interesting to say the least.
+
+This application is our project from our CIS*4650 Compilers class.  It is uses the
+grammar of the 'Pish' language in order to build an abstract syntax tree which
+ends up being semantically validated and type-checked, then converted into either
+MIPS assembly or intermediate code.
+
+For more documentation and assumptions please refer to the documents in the
+'docs' folder of this submission. They were what we wrote while this project was in
+progress.
+
+Compiling the program
+---------------------
+You need gcc, g++, make, lex, and yacc.
+
+Type "make" on a command line and hopefully, if all goes well, you have compiled the compiler!
+Then you should be able to use 'pishc' to do your evil bidding.
+
+Running the Program
+-------------------
+In order to run this application, one must first ensure that the application
+has been succesfully compiled.  If it has not, please refer to the 'Compilation
+Instructions' in the previous section.
+
+Once compiled, the application has the name 'pishc'.
+
+The application has the following options (some of which currently do nothing):
+
+Usage: ./pishc [-flag] [... filename]
+  flags:
+    Mode (only one may be used):
+      -a : perform syntax analysis and output abstract syntax (.abs)
+      -s : perform type checking and output symbol table (.sym)
+      -i : analyze semantically and output intermediate code (.inr)
+      -c : compile and output MIPS R2000 assembler (.asm)
+
+    Other:
+      -N : interactive (read from stdin, write to stdout)
+      
+Legal
+-----
+This is released under a zlib license:
+
+    Copyright (c) 2010 Andrew Crowell and Andrew Judd
+
+    This software is provided 'as-is', without any express or implied
+    warranty. In no event will the authors be held liable for any damages
+    arising from the use of this software.
+
+    Permission is granted to anyone to use this software for any purpose,
+    including commercial applications, and to alter it and redistribute it
+    freely, subject to the following restrictions:
+
+       1. The origin of this software must not be misrepresented; you must not
+       claim that you wrote the original software. If you use this software
+       in a product, an acknowledgment in the product documentation would be
+       appreciated but is not required.
+
+       2. Altered source versions must be plainly marked as such, and must not be
+       misrepresented as being the original software.
+       
+       3. This notice may not be removed or altered from any source
+       distribution.
+
+Contact
+-------
+Feel free to contact us through email:
+    Andrew Crowell (overkill9999@gmail.com),
+    Andrew Judd (judda@uoguelph.ca)

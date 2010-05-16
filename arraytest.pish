@@ -1,0 +1,15 @@
+program main(input, output);
+    var test : array[1 .. 10] of char;
+    var a, b : real;
+begin
+    {writereal(1 / 3 + 2 * 4);
+    writechar('\n');}
+    a := 5;{
+    writereal(5 * 5.0);
+    writechar('\n');    
+    writeint(r <> 1.1);}
+    
+    test := 'hey';
+    
+    writechar('\n')
+end.

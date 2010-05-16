@@ -1,0 +1,35 @@
+
+arrays
+    SLOT #0 is size of array
+    SLOT #1 is the dimension multiplier
+    ELEMENTS: 2 .. L + 2
+    FULL SIZE: L + 2
+
+
+lookup:
+BASE[E1][E2][E3]...
+
+
+    tmp = BASE CONSTANT // variable's base offset.
+    
+    index = E1 // expression
+        ... // all sorts of expresssion crap
+    index -= S1 // subtract start off of that index expression we made.
+    index += 2 // Because our arrays internally store other information in base slots.
+    check index >= 2 and index < *(tmp) + 2 // *tmp == array length.  
+    index = index * *(tmp + 1) // multiply by *(tmp + 1) == known length of next item  
+    tmp = index // reset the "loop" and repeat above stuff for next array index.
+    
+    index = E2 // expression
+        ... // all sorts of expresssion crap
+    index -= S2 // subtract start off of that index expression we made.
+    check index >= 1 and index <= *(tmp) + 1 // *tmp == array length.
+    index = index * *(tmp + 1) // multiply by *(tmp + 1) == known length of next item    
+    tmp = index
+    
+    ... // all index expressions
+    
+    // Now we have the address in tmp
+    
+
+

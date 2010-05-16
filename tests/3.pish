@@ -1,0 +1,9 @@
+program hello_world ( foo, bar, HAI );
+	type
+		h : INTEGER; { Shouldn't this be an equals sign? }
+		i = CHAR;
+begin
+	var			{ Declarations cannot occur inside a compound statement }
+		hai : INTEGER;
+	a := ( 5 { This will eat up the rest of the file and then error about missing parenthesis }
+end.

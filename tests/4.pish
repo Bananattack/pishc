@@ -1,0 +1,21 @@
+program TestFuncFailure(input, output);
+
+	function stillWorking () : INTEGER;
+		begin
+            a := 10;
+            b + 2; { Unexpected expression. (Should be statement.) This is a test for error recovery in functions. }
+            stillWorking := 4 { This statement is a valid return value assignment. }
+		end;
+
+	procedure foo () : INTEGER; { Uh oh, procedures shouldn't be allowed to have a return value ... use functions! }
+        var a : integer;
+		begin
+			a := 5
+		end;
+	
+	procedure bar ( a, b : INTEGER, ); { Trailing , in argument list }
+		begin
+		end;
+begin
+end.
+

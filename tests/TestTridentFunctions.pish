@@ -1,0 +1,53 @@
+program TestTrident ( input, output );
+        const
+                TINE_STARS = 10;
+                TINE_WIDTH = 40;
+                HANDLE_LENGTH = 10;
+
+        procedure printTines ( width, height : integer );
+                x, y, mid : integer;
+        begin
+                mid = width DIV 2;
+                for x := 0 to height do begin
+                     for y := 0 to width do begin
+                             if ( ( y = 0 ) + ( y = mid ) + ( y = width ) ) then
+                                    writechar ( '*' )
+                             else
+                                    writechar ( ' ' )
+                end;
+
+                writechar ( '\n' )
+        
+        end;
+
+        procedure printLine ( width : integer )
+                x : integer;
+        begin
+                for x := 0 to TINE_WIDTH do
+                        writechar ( '*' )
+
+                writechar ( '\n' )
+        end;
+
+        procedure printHandle ( width, height : integer )
+                x, y, mid : integer;
+        begin
+                mid = width DIV 2;
+
+                for x := 0 to HANDLE_LENGTH do begin
+                        for y := 0 to TINE_WIDTH do begin
+                                if ( y = mid ) then
+                                        writechar ( '*' )
+                                else
+                                        writechar ( ' ' )
+                        end;
+
+                writechar ( '\n' )
+                end
+        end;
+
+begin
+        printTines ( TINE_WIDTH, TINE_STARS );
+        printLine ( TINE_WIDTH );
+        printHandle ( TINE_WIDTH, HANDLE_HEIGHT );
+end.

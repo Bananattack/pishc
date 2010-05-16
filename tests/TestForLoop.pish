@@ -1,0 +1,21 @@
+program TestForLoop(input, output);
+var a, b : integer;
+var x : integer;
+begin
+    x := -1;
+    for a := 1 to 3 do begin
+        if ( ( a = 2 ) + ( a = 3 ) ) then begin
+                if ( a = 2 ) then begin
+                        writechar ( 'h' )
+                end
+                else begin
+                        writechar ( 'i' )
+                end
+        end;
+                
+        x := a
+    end;
+    for a := 3 downto -x do begin
+        b := a
+    end
+end.

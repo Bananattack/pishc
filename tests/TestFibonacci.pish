@@ -1,0 +1,13 @@
+program TestFibonacci ( input, output );
+        function fibonacci ( n : integer ) : integer;
+        begin
+                if ( ( n = 0 ) + ( n = 1 ) ) then
+                        fibonacci := 1
+                else
+                        fibonacci := fibonacci ( n - 1 ) + fibonacci ( n - 2 )
+        end;
+
+        var x : integer;
+begin
+        writeint ( fibonacci ( 7 ) )
+end.

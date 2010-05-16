@@ -1,0 +1,994 @@
+99: Program(
+    head = 1: ProgramHead(
+        type = HEAD_MAIN, name = 1: Identifier(name = thisonecompiles),
+        identifierList = 1: IdentifierList(
+            1: Identifier(name = input),
+            1: Identifier(name = output)
+        )
+    ),
+    body = 99: ProgramBody(
+        locals = 1: DeclarationList(
+            4: DeclarationList(
+                4: ConstantDeclaration(
+                    identifier = 4: Identifier(name = pi),
+                    expression = 4: Expression(
+                        category = EXPR_LITERAL, literal = 4: Literal(type = LITERAL_REAL, realValue = 3.141519)
+                    )
+                ),
+                5: ConstantDeclaration(
+                    identifier = 5: Identifier(name = negative_pi),
+                    expression = 5: Expression(
+                        category = EXPR_OPERATOR, op = 5: Operator(
+                            type = 1, operand = 5: Expression(
+                                category = EXPR_VARIABLE, variable = 5: Variable(
+                                    identifier = 5: Identifier(name = pi),
+                                    subscripts = null (simple variable)
+                                )
+                            ),
+                            rightOperand = null
+                        )
+                    )
+                ),
+                7: ConstantDeclaration(
+                    identifier = 7: Identifier(name = start_index),
+                    expression = 7: Expression(
+                        category = EXPR_OPERATOR, op = 7: Operator(
+                            type = 1, operand = 7: Expression(
+                                category = EXPR_LITERAL, literal = 7: Literal(type = LITERAL_INT, intValue = 5)
+                            ),
+                            rightOperand = null
+                        )
+                    )
+                ),
+                8: ConstantDeclaration(
+                    identifier = 8: Identifier(name = end_index),
+                    expression = 8: Expression(
+                        category = EXPR_LITERAL, literal = 8: Literal(type = LITERAL_INT, intValue = 9)
+                    )
+                ),
+                10: ConstantDeclaration(
+                    identifier = 10: Identifier(name = yes),
+                    expression = 10: Expression(
+                        category = EXPR_VARIABLE, variable = 10: Variable(
+                            identifier = 10: Identifier(name = true),
+                            subscripts = null (simple variable)
+                        )
+                    )
+                ),
+                11: ConstantDeclaration(
+                    identifier = 11: Identifier(name = no),
+                    expression = 11: Expression(
+                        category = EXPR_VARIABLE, variable = 11: Variable(
+                            identifier = 11: Identifier(name = false),
+                            subscripts = null (simple variable)
+                        )
+                    )
+                ),
+                13: ConstantDeclaration(
+                    identifier = 13: Identifier(name = text),
+                    expression = 13: Expression(
+                        category = EXPR_LITERAL, literal = 13: Literal(type = LITERAL_STRING, stringValue = This is a horrible 'Hello world' in Pish)
+                    )
+                )
+            ),
+            20: DeclarationList(
+                20: AliasDeclaration(
+                    identifier = 15: Identifier(name = polygon),
+                    type = 20: TypeDefinition(
+                        category = TYPE_RECORD, record.members = 18: DeclarationList(
+                            18: DeclarationList(
+                                18: VariableDeclaration(
+                                    list = 16: IdentifierList(
+                                        16: Identifier(name = vertices)
+                                    ),
+                                    type = 18: TypeDefinition(
+                                        category = TYPE_ARRAY, array.type = 18: TypeDefinition(
+                                            category = TYPE_RECORD, record.members = 17: DeclarationList(
+                                                17: DeclarationList(
+                                                    17: VariableDeclaration(
+                                                        list = 17: IdentifierList(
+                                                            17: Identifier(name = x),
+                                                            17: Identifier(name = y),
+                                                            17: Identifier(name = z)
+                                                        ),
+                                                        type = 17: TypeDefinition(
+                                                            category = TYPE_IDENTIFIER, identifier = 17: Identifier(name = real),
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                        ),
+                                        array.lower = 16: Expression(
+                                            category = EXPR_VARIABLE, variable = 16: Variable(
+                                                identifier = 16: Identifier(name = start_index),
+                                                subscripts = null (simple variable)
+                                            )
+                                        ),
+                                        array.upper = 16: Expression(
+                                            category = EXPR_VARIABLE, variable = 16: Variable(
+                                                identifier = 16: Identifier(name = end_index),
+                                                subscripts = null (simple variable)
+                                            )
+                                        ),
+                                    )
+                                )
+                            )
+                        ),
+                    )
+                ),
+                21: AliasDeclaration(
+                    identifier = 21: Identifier(name = int),
+                    type = 21: TypeDefinition(
+                        category = TYPE_IDENTIFIER, identifier = 21: Identifier(name = integer),
+                    )
+                ),
+                22: AliasDeclaration(
+                    identifier = 22: Identifier(name = porygon),
+                    type = 22: TypeDefinition(
+                        category = TYPE_IDENTIFIER, identifier = 22: Identifier(name = polygon),
+                    )
+                )
+            ),
+            24: DeclarationList(
+                24: DeclarationList(
+                    24: VariableDeclaration(
+                        list = 24: IdentifierList(
+                            24: Identifier(name = polygons)
+                        ),
+                        type = 24: TypeDefinition(
+                            category = TYPE_ARRAY, array.type = 24: TypeDefinition(
+                                category = TYPE_IDENTIFIER, identifier = 24: Identifier(name = porygon),
+                            ),
+                            array.lower = 24: Expression(
+                                category = EXPR_LITERAL, literal = 24: Literal(type = LITERAL_INT, intValue = 1)
+                            ),
+                            array.upper = 24: Expression(
+                                category = EXPR_LITERAL, literal = 24: Literal(type = LITERAL_INT, intValue = 5)
+                            ),
+                        )
+                    )
+                ),
+                25: DeclarationList(
+                    25: VariableDeclaration(
+                        list = 25: IdentifierList(
+                            25: Identifier(name = pory)
+                        ),
+                        type = 25: TypeDefinition(
+                            category = TYPE_IDENTIFIER, identifier = 25: Identifier(name = porygon),
+                        )
+                    )
+                ),
+                26: DeclarationList(
+                    26: VariableDeclaration(
+                        list = 26: IdentifierList(
+                            26: Identifier(name = x),
+                            26: Identifier(name = y),
+                            26: Identifier(name = z)
+                        ),
+                        type = 26: TypeDefinition(
+                            category = TYPE_IDENTIFIER, identifier = 26: Identifier(name = real),
+                        )
+                    )
+                ),
+                27: DeclarationList(
+                    27: VariableDeclaration(
+                        list = 27: IdentifierList(
+                            27: Identifier(name = i)
+                        ),
+                        type = 27: TypeDefinition(
+                            category = TYPE_IDENTIFIER, identifier = 27: Identifier(name = int),
+                        )
+                    )
+                ),
+                28: DeclarationList(
+                    28: VariableDeclaration(
+                        list = 28: IdentifierList(
+                            28: Identifier(name = ch)
+                        ),
+                        type = 28: TypeDefinition(
+                            category = TYPE_IDENTIFIER, identifier = 28: Identifier(name = char),
+                        )
+                    )
+                ),
+                29: DeclarationList(
+                    29: VariableDeclaration(
+                        list = 29: IdentifierList(
+                            29: Identifier(name = message)
+                        ),
+                        type = 29: TypeDefinition(
+                            category = TYPE_ARRAY, array.type = 29: TypeDefinition(
+                                category = TYPE_IDENTIFIER, identifier = 29: Identifier(name = char),
+                            ),
+                            array.lower = 29: Expression(
+                                category = EXPR_LITERAL, literal = 29: Literal(type = LITERAL_INT, intValue = 1)
+                            ),
+                            array.upper = 29: Expression(
+                                category = EXPR_LITERAL, literal = 29: Literal(type = LITERAL_INT, intValue = 41)
+                            ),
+                        )
+                    )
+                )
+            ),
+            32: ProgramDeclaration(
+                program = 32: Program(
+                    head = 32: ProgramHead(
+                        type = HEAD_SUB, name = 32: Identifier(name = printstring),
+                        returnValue = null (procedure),
+                        parameters = 32: DeclarationList(
+                            32: VariableDeclaration(
+                                list = 32: IdentifierList(
+                                    32: Identifier(name = s)
+                                ),
+                                type = 32: TypeDefinition(
+                                    category = TYPE_ARRAY, array.type = 32: TypeDefinition(
+                                        category = TYPE_IDENTIFIER, identifier = 32: Identifier(name = char),
+                                    ),
+                                    array.lower = 32: Expression(
+                                        category = EXPR_LITERAL, literal = 32: Literal(type = LITERAL_INT, intValue = 1)
+                                    ),
+                                    array.upper = 32: Expression(
+                                        category = EXPR_LITERAL, literal = 32: Literal(type = LITERAL_INT, intValue = 256)
+                                    ),
+                                )
+                            )
+                        )
+                    ),
+                    body = null (forward declaration)
+                )
+            ),
+            37: ProgramDeclaration(
+                program = 37: Program(
+                    head = 34: ProgramHead(
+                        type = HEAD_SUB, name = 34: Identifier(name = printchar),
+                        returnValue = null (procedure),
+                        parameters = 34: DeclarationList(
+                            34: VariableDeclaration(
+                                list = 34: IdentifierList(
+                                    34: Identifier(name = ch)
+                                ),
+                                type = 34: TypeDefinition(
+                                    category = TYPE_IDENTIFIER, identifier = 34: Identifier(name = char),
+                                )
+                            )
+                        )
+                    ),
+                    body = 37: ProgramBody(
+                        locals = 35: DeclarationList(),
+                        statements = 37: StatementList(
+                            36: CallStatement(
+                                invocation = 36: ProgramInvocation(
+                                    name = 36: Identifier(name = writechar),
+                                    arguments = 36: ExpressionList(
+                                        36: Expression(
+                                            category = EXPR_VARIABLE, variable = 36: Variable(
+                                                identifier = 36: Identifier(name = ch),
+                                                subscripts = null (simple variable)
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            47: ProgramDeclaration(
+                program = 47: Program(
+                    head = 39: ProgramHead(
+                        type = HEAD_SUB, name = 39: Identifier(name = printstring),
+                        returnValue = null (procedure),
+                        parameters = 39: DeclarationList(
+                            39: VariableDeclaration(
+                                list = 39: IdentifierList(
+                                    39: Identifier(name = s)
+                                ),
+                                type = 39: TypeDefinition(
+                                    category = TYPE_ARRAY, array.type = 39: TypeDefinition(
+                                        category = TYPE_IDENTIFIER, identifier = 39: Identifier(name = char),
+                                    ),
+                                    array.lower = 39: Expression(
+                                        category = EXPR_LITERAL, literal = 39: Literal(type = LITERAL_INT, intValue = 1)
+                                    ),
+                                    array.upper = 39: Expression(
+                                        category = EXPR_LITERAL, literal = 39: Literal(type = LITERAL_INT, intValue = 256)
+                                    ),
+                                )
+                            )
+                        )
+                    ),
+                    body = 47: ProgramBody(
+                        locals = 40: DeclarationList(
+                            40: DeclarationList(
+                                40: DeclarationList(
+                                    40: VariableDeclaration(
+                                        list = 40: IdentifierList(
+                                            40: Identifier(name = x)
+                                        ),
+                                        type = 40: TypeDefinition(
+                                            category = TYPE_IDENTIFIER, identifier = 40: Identifier(name = integer),
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        statements = 42: StatementList(
+                            42: AssignmentStatement(
+                                variable = 42: Variable(
+                                    identifier = 42: Identifier(name = x),
+                                    subscripts = null (simple variable)
+                                ),
+                                value = 42: Expression(
+                                    category = EXPR_LITERAL, literal = 42: Literal(type = LITERAL_INT, intValue = 1)
+                                )
+                            ),
+                            46: WhileStatement(
+                                test = 43: Expression(
+                                    category = EXPR_OPERATOR, op = 43: Operator(
+                                        type = 8, operand = 43: Expression(
+                                            category = EXPR_OPERATOR, op = 43: Operator(
+                                                type = 13, operand = 43: Expression(
+                                                    category = EXPR_VARIABLE, variable = 43: Variable(
+                                                        identifier = 43: Identifier(name = x),
+                                                        subscripts = null (simple variable)
+                                                    )
+                                                ),
+                                                rightOperand = 43: Expression(
+                                                    category = EXPR_LITERAL, literal = 43: Literal(type = LITERAL_INT, intValue = 256)
+                                                )
+                                            )
+                                        ),
+                                        rightOperand = 43: Expression(
+                                            category = EXPR_OPERATOR, op = 43: Operator(
+                                                type = 10, operand = 43: Expression(
+                                                    category = EXPR_VARIABLE, variable = 43: Variable(
+                                                        identifier = 43: Identifier(name = s),
+                                                        subscripts = 43: SubscriptList(
+                                                            43: Subscript(
+                                                                category = SUB_INDEX, index = 43: Expression(
+                                                                    category = EXPR_VARIABLE, variable = 43: Variable(
+                                                                        identifier = 43: Identifier(name = x),
+                                                                        subscripts = null (simple variable)
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                ),
+                                                rightOperand = 43: Expression(
+                                                    category = EXPR_LITERAL, literal = 43: Literal(type = LITERAL_INT, intValue = 0)
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                                statement = 44: StatementList(
+                                    44: CallStatement(
+                                        invocation = 44: ProgramInvocation(
+                                            name = 44: Identifier(name = printchar),
+                                            arguments = 44: ExpressionList(
+                                                44: Expression(
+                                                    category = EXPR_VARIABLE, variable = 44: Variable(
+                                                        identifier = 44: Identifier(name = s),
+                                                        subscripts = 44: SubscriptList(
+                                                            44: Subscript(
+                                                                category = SUB_INDEX, index = 44: Expression(
+                                                                    category = EXPR_VARIABLE, variable = 44: Variable(
+                                                                        identifier = 44: Identifier(name = x),
+                                                                        subscripts = null (simple variable)
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    46: AssignmentStatement(
+                                        variable = 46: Variable(
+                                            identifier = 45: Identifier(name = x),
+                                            subscripts = null (simple variable)
+                                        ),
+                                        value = 46: Expression(
+                                            category = EXPR_OPERATOR, op = 46: Operator(
+                                                type = 2, operand = 45: Expression(
+                                                    category = EXPR_VARIABLE, variable = 45: Variable(
+                                                        identifier = 45: Identifier(name = x),
+                                                        subscripts = null (simple variable)
+                                                    )
+                                                ),
+                                                rightOperand = 45: Expression(
+                                                    category = EXPR_LITERAL, literal = 45: Literal(type = LITERAL_INT, intValue = 1)
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            53: ProgramDeclaration(
+                program = 53: Program(
+                    head = 49: ProgramHead(
+                        type = HEAD_SUB, name = 49: Identifier(name = printline),
+                        returnValue = null (procedure),
+                        parameters = 49: DeclarationList(
+                            49: VariableDeclaration(
+                                list = 49: IdentifierList(
+                                    49: Identifier(name = s)
+                                ),
+                                type = 49: TypeDefinition(
+                                    category = TYPE_ARRAY, array.type = 49: TypeDefinition(
+                                        category = TYPE_IDENTIFIER, identifier = 49: Identifier(name = char),
+                                    ),
+                                    array.lower = 49: Expression(
+                                        category = EXPR_LITERAL, literal = 49: Literal(type = LITERAL_INT, intValue = 1)
+                                    ),
+                                    array.upper = 49: Expression(
+                                        category = EXPR_LITERAL, literal = 49: Literal(type = LITERAL_INT, intValue = 256)
+                                    ),
+                                )
+                            )
+                        )
+                    ),
+                    body = 53: ProgramBody(
+                        locals = 50: DeclarationList(),
+                        statements = 51: StatementList(
+                            51: CallStatement(
+                                invocation = 51: ProgramInvocation(
+                                    name = 51: Identifier(name = printstring),
+                                    arguments = 51: ExpressionList(
+                                        51: Expression(
+                                            category = EXPR_VARIABLE, variable = 51: Variable(
+                                                identifier = 51: Identifier(name = s),
+                                                subscripts = null (simple variable)
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                            52: CallStatement(
+                                invocation = 52: ProgramInvocation(
+                                    name = 52: Identifier(name = printchar),
+                                    arguments = 52: ExpressionList(
+                                        52: Expression(
+                                            category = EXPR_LITERAL, literal = 52: Literal(type = LITERAL_STRING, stringValue = 
+)
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            66: ProgramDeclaration(
+                program = 66: Program(
+                    head = 55: ProgramHead(
+                        type = HEAD_SUB, name = 55: Identifier(name = factorial),
+                        returnValue = null (procedure),
+                        parameters = 55: DeclarationList(
+                            55: VariableDeclaration(
+                                list = 55: IdentifierList(
+                                    55: Identifier(name = n)
+                                ),
+                                type = 55: TypeDefinition(
+                                    category = TYPE_IDENTIFIER, identifier = 55: Identifier(name = int),
+                                )
+                            ),
+                            55: VariableDeclaration(
+                                list = 55: IdentifierList(
+                                    55: Identifier(name = result)
+                                ),
+                                type = 55: TypeDefinition(
+                                    category = TYPE_IDENTIFIER, identifier = 55: Identifier(name = int),
+                                )
+                            )
+                        )
+                    ),
+                    body = 66: ProgramBody(
+                        locals = 56: DeclarationList(
+                            63: ProgramDeclaration(
+                                program = 63: Program(
+                                    head = 56: ProgramHead(
+                                        type = HEAD_SUB, name = 56: Identifier(name = fact),
+                                        returnValue = 56: TypeDefinition(
+                                            category = TYPE_IDENTIFIER, identifier = 56: Identifier(name = int),
+                                        ),
+                                        parameters = 56: DeclarationList(
+                                            56: VariableDeclaration(
+                                                list = 56: IdentifierList(
+                                                    56: Identifier(name = n)
+                                                ),
+                                                type = 56: TypeDefinition(
+                                                    category = TYPE_IDENTIFIER, identifier = 56: Identifier(name = int),
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    body = 63: ProgramBody(
+                                        locals = 57: DeclarationList(
+                                            57: DeclarationList(
+                                                57: ConstantDeclaration(
+                                                    identifier = 57: Identifier(name = trivial),
+                                                    expression = 57: Expression(
+                                                        category = EXPR_LITERAL, literal = 57: Literal(type = LITERAL_INT, intValue = 1)
+                                                    )
+                                                )
+                                            )
+                                        ),
+                                        statements = 63: StatementList(
+                                            63: IfStatement(
+                                                test = 60: Expression(
+                                                    category = EXPR_OPERATOR, op = 60: Operator(
+                                                        type = 13, operand = 60: Expression(
+                                                            category = EXPR_VARIABLE, variable = 60: Variable(
+                                                                identifier = 60: Identifier(name = n),
+                                                                subscripts = null (simple variable)
+                                                            )
+                                                        ),
+                                                        rightOperand = 60: Expression(
+                                                            category = EXPR_VARIABLE, variable = 60: Variable(
+                                                                identifier = 60: Identifier(name = trivial),
+                                                                subscripts = null (simple variable)
+                                                            )
+                                                        )
+                                                    )
+                                                ),
+                                                trueStatement = 62: AssignmentStatement(
+                                                    variable = 62: Variable(
+                                                        identifier = 60: Identifier(name = fact),
+                                                        subscripts = null (simple variable)
+                                                    ),
+                                                    value = 60: Expression(
+                                                        category = EXPR_LITERAL, literal = 60: Literal(type = LITERAL_INT, intValue = 1)
+                                                    )
+                                                ),
+                                                falseStatement = 63: AssignmentStatement(
+                                                    variable = 63: Variable(
+                                                        identifier = 62: Identifier(name = fact),
+                                                        subscripts = null (simple variable)
+                                                    ),
+                                                    value = 62: Expression(
+                                                        category = EXPR_OPERATOR, op = 62: Operator(
+                                                            type = 4, operand = 62: Expression(
+                                                                category = EXPR_VARIABLE, variable = 62: Variable(
+                                                                    identifier = 62: Identifier(name = n),
+                                                                    subscripts = null (simple variable)
+                                                                )
+                                                            ),
+                                                            rightOperand = 62: Expression(
+                                                                category = EXPR_CALL, call = 62: ProgramInvocation(
+                                                                    name = 62: Identifier(name = fact),
+                                                                    arguments = 62: ExpressionList(
+                                                                        62: Expression(
+                                                                            category = EXPR_OPERATOR, op = 62: Operator(
+                                                                                type = 3, operand = 62: Expression(
+                                                                                    category = EXPR_VARIABLE, variable = 62: Variable(
+                                                                                        identifier = 62: Identifier(name = n),
+                                                                                        subscripts = null (simple variable)
+                                                                                    )
+                                                                                ),
+                                                                                rightOperand = 62: Expression(
+                                                                                    category = EXPR_LITERAL, literal = 62: Literal(type = LITERAL_INT, intValue = 1)
+                                                                                )
+                                                                            )
+                                                                        )
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        statements = 66: StatementList(
+                            66: AssignmentStatement(
+                                variable = 66: Variable(
+                                    identifier = 65: Identifier(name = result),
+                                    subscripts = null (simple variable)
+                                ),
+                                value = 65: Expression(
+                                    category = EXPR_CALL, call = 65: ProgramInvocation(
+                                        name = 65: Identifier(name = fact),
+                                        arguments = 65: ExpressionList(
+                                            65: Expression(
+                                                category = EXPR_VARIABLE, variable = 65: Variable(
+                                                    identifier = 65: Identifier(name = n),
+                                                    subscripts = null (simple variable)
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        ),
+        statements = 83: StatementList(
+            83: ForStatement(
+                variable = 83: Variable(
+                    identifier = 70: Identifier(name = i),
+                    subscripts = null (simple variable)
+                ),
+                lower = 70: Expression(
+                    category = EXPR_LITERAL, literal = 70: Literal(type = LITERAL_INT, intValue = 1)
+                ),
+                upper = 70: Expression(
+                    category = EXPR_LITERAL, literal = 70: Literal(type = LITERAL_INT, intValue = 1)
+                ),
+                , direction = 0
+                statement = 71: StatementList(
+                    71: AssignmentStatement(
+                        variable = 71: Variable(
+                            identifier = 71: Identifier(name = pory),
+                            subscripts = null (simple variable)
+                        ),
+                        value = 71: Expression(
+                            category = EXPR_VARIABLE, variable = 71: Variable(
+                                identifier = 71: Identifier(name = polygons),
+                                subscripts = 71: SubscriptList(
+                                    71: Subscript(
+                                        category = SUB_INDEX, index = 71: Expression(
+                                            category = EXPR_VARIABLE, variable = 71: Variable(
+                                                identifier = 71: Identifier(name = i),
+                                                subscripts = null (simple variable)
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    82: IfStatement(
+                        test = 72: Expression(
+                            category = EXPR_OPERATOR, op = 72: Operator(
+                                type = 7, operand = 72: Expression(
+                                    category = EXPR_VARIABLE, variable = 72: Variable(
+                                        identifier = 72: Identifier(name = i),
+                                        subscripts = null (simple variable)
+                                    )
+                                ),
+                                rightOperand = 72: Expression(
+                                    category = EXPR_LITERAL, literal = 72: Literal(type = LITERAL_INT, intValue = 2)
+                                )
+                            )
+                        ),
+                        trueStatement = 73: StatementList(
+                            73: AssignmentStatement(
+                                variable = 73: Variable(
+                                    identifier = 73: Identifier(name = pory),
+                                    subscripts = 73: SubscriptList(
+                                        73: Subscript(
+                                            category = SUB_ATTRIBUTE, attribute = 73: Identifier(name = vertices)
+                                        ),
+                                        73: Subscript(
+                                            category = SUB_INDEX, index = 73: Expression(
+                                                category = EXPR_LITERAL, literal = 73: Literal(type = LITERAL_INT, intValue = 0)
+                                            )
+                                        ),
+                                        73: Subscript(
+                                            category = SUB_ATTRIBUTE, attribute = 73: Identifier(name = x)
+                                        )
+                                    )
+                                ),
+                                value = 73: Expression(
+                                    category = EXPR_OPERATOR, op = 73: Operator(
+                                        type = 5, operand = 73: Expression(
+                                            category = EXPR_LITERAL, literal = 73: Literal(type = LITERAL_INT, intValue = 32)
+                                        ),
+                                        rightOperand = 73: Expression(
+                                            category = EXPR_LITERAL, literal = 73: Literal(type = LITERAL_REAL, realValue = 2.123400)
+                                        )
+                                    )
+                                )
+                            ),
+                            74: AssignmentStatement(
+                                variable = 74: Variable(
+                                    identifier = 74: Identifier(name = pory),
+                                    subscripts = 74: SubscriptList(
+                                        74: Subscript(
+                                            category = SUB_ATTRIBUTE, attribute = 74: Identifier(name = vertices)
+                                        ),
+                                        74: Subscript(
+                                            category = SUB_INDEX, index = 74: Expression(
+                                                category = EXPR_OPERATOR, op = 74: Operator(
+                                                    type = 1, operand = 74: Expression(
+                                                        category = EXPR_LITERAL, literal = 74: Literal(type = LITERAL_INT, intValue = 4)
+                                                    ),
+                                                    rightOperand = null
+                                                )
+                                            )
+                                        ),
+                                        74: Subscript(
+                                            category = SUB_ATTRIBUTE, attribute = 74: Identifier(name = y)
+                                        )
+                                    )
+                                ),
+                                value = 74: Expression(
+                                    category = EXPR_LITERAL, literal = 74: Literal(type = LITERAL_INT, intValue = 3)
+                                )
+                            ),
+                            75: AssignmentStatement(
+                                variable = 75: Variable(
+                                    identifier = 75: Identifier(name = pory),
+                                    subscripts = 75: SubscriptList(
+                                        75: Subscript(
+                                            category = SUB_ATTRIBUTE, attribute = 75: Identifier(name = vertices)
+                                        ),
+                                        75: Subscript(
+                                            category = SUB_INDEX, index = 75: Expression(
+                                                category = EXPR_LITERAL, literal = 75: Literal(type = LITERAL_INT, intValue = 2)
+                                            )
+                                        ),
+                                        75: Subscript(
+                                            category = SUB_ATTRIBUTE, attribute = 75: Identifier(name = z)
+                                        )
+                                    )
+                                ),
+                                value = 75: Expression(
+                                    category = EXPR_LITERAL, literal = 75: Literal(type = LITERAL_INT, intValue = 3)
+                                )
+                            ),
+                            77: CallStatement(
+                                invocation = 77: ProgramInvocation(
+                                    name = 77: Identifier(name = printline),
+                                    arguments = 77: ExpressionList(
+                                        77: Expression(
+                                            category = EXPR_LITERAL, literal = 77: Literal(type = LITERAL_STRING, stringValue = ODD NUMBER)
+                                        )
+                                    )
+                                )
+                            ),
+                            78: CallStatement(
+                                invocation = 78: ProgramInvocation(
+                                    name = 78: Identifier(name = writereal),
+                                    arguments = 78: ExpressionList(
+                                        78: Expression(
+                                            category = EXPR_VARIABLE, variable = 78: Variable(
+                                                identifier = 78: Identifier(name = i),
+                                                subscripts = null (simple variable)
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        falseStatement = 80: StatementList(
+                            80: CallStatement(
+                                invocation = 80: ProgramInvocation(
+                                    name = 80: Identifier(name = printline),
+                                    arguments = 80: ExpressionList(
+                                        80: Expression(
+                                            category = EXPR_LITERAL, literal = 80: Literal(type = LITERAL_STRING, stringValue = EVEN NUMBER)
+                                        )
+                                    )
+                                )
+                            ),
+                            81: CallStatement(
+                                invocation = 81: ProgramInvocation(
+                                    name = 81: Identifier(name = writeint),
+                                    arguments = 81: ExpressionList(
+                                        81: Expression(
+                                            category = EXPR_VARIABLE, variable = 81: Variable(
+                                                identifier = 81: Identifier(name = i),
+                                                subscripts = null (simple variable)
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            86: AssignmentStatement(
+                variable = 86: Variable(
+                    identifier = 86: Identifier(name = x),
+                    subscripts = null (simple variable)
+                ),
+                value = 86: Expression(
+                    category = EXPR_OPERATOR, op = 86: Operator(
+                        type = 6, operand = 86: Expression(
+                            category = EXPR_LITERAL, literal = 86: Literal(type = LITERAL_INT, intValue = 1)
+                        ),
+                        rightOperand = 86: Expression(
+                            category = EXPR_OPERATOR, op = 86: Operator(
+                                type = 2, operand = 86: Expression(
+                                    category = EXPR_OPERATOR, op = 86: Operator(
+                                        type = 4, operand = 86: Expression(
+                                            category = EXPR_LITERAL, literal = 86: Literal(type = LITERAL_INT, intValue = 4)
+                                        ),
+                                        rightOperand = 86: Expression(
+                                            category = EXPR_LITERAL, literal = 86: Literal(type = LITERAL_INT, intValue = 3)
+                                        )
+                                    )
+                                ),
+                                rightOperand = 86: Expression(
+                                    category = EXPR_LITERAL, literal = 86: Literal(type = LITERAL_INT, intValue = 2)
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            95: WhileStatement(
+                test = 87: Expression(
+                    category = EXPR_OPERATOR, op = 87: Operator(
+                        type = 11, operand = 87: Expression(
+                            category = EXPR_VARIABLE, variable = 87: Variable(
+                                identifier = 87: Identifier(name = x),
+                                subscripts = null (simple variable)
+                            )
+                        ),
+                        rightOperand = 87: Expression(
+                            category = EXPR_LITERAL, literal = 87: Literal(type = LITERAL_INT, intValue = 5)
+                        )
+                    )
+                ),
+                statement = 88: StatementList(
+                    88: CallStatement(
+                        invocation = 88: ProgramInvocation(
+                            name = 88: Identifier(name = printstring),
+                            arguments = 88: ExpressionList(
+                                88: Expression(
+                                    category = EXPR_LITERAL, literal = 88: Literal(type = LITERAL_STRING, stringValue = 7! = )
+                                )
+                            )
+                        )
+                    ),
+                    89: CallStatement(
+                        invocation = 89: ProgramInvocation(
+                            name = 89: Identifier(name = factorial),
+                            arguments = 89: ExpressionList(
+                                89: Expression(
+                                    category = EXPR_LITERAL, literal = 89: Literal(type = LITERAL_INT, intValue = 7)
+                                ),
+                                89: Expression(
+                                    category = EXPR_VARIABLE, variable = 89: Variable(
+                                        identifier = 89: Identifier(name = i),
+                                        subscripts = null (simple variable)
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    90: CallStatement(
+                        invocation = 90: ProgramInvocation(
+                            name = 90: Identifier(name = writeint),
+                            arguments = 90: ExpressionList(
+                                90: Expression(
+                                    category = EXPR_VARIABLE, variable = 90: Variable(
+                                        identifier = 90: Identifier(name = i),
+                                        subscripts = null (simple variable)
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    91: CallStatement(
+                        invocation = 91: ProgramInvocation(
+                            name = 91: Identifier(name = printline),
+                            arguments = 91: ExpressionList(
+                                91: Expression(
+                                    category = EXPR_LITERAL, literal = 91: Literal(type = LITERAL_STRING, stringValue = )
+                                )
+                            )
+                        )
+                    ),
+                    92: AssignmentStatement(
+                        variable = 92: Variable(
+                            identifier = 92: Identifier(name = x),
+                            subscripts = null (simple variable)
+                        ),
+                        value = 92: Expression(
+                            category = EXPR_OPERATOR, op = 92: Operator(
+                                type = 2, operand = 92: Expression(
+                                    category = EXPR_VARIABLE, variable = 92: Variable(
+                                        identifier = 92: Identifier(name = x),
+                                        subscripts = null (simple variable)
+                                    )
+                                ),
+                                rightOperand = 92: Expression(
+                                    category = EXPR_LITERAL, literal = 92: Literal(type = LITERAL_INT, intValue = 1)
+                                )
+                            )
+                        )
+                    ),
+                    93: AssignmentStatement(
+                        variable = 93: Variable(
+                            identifier = 93: Identifier(name = z),
+                            subscripts = null (simple variable)
+                        ),
+                        value = 93: Expression(
+                            category = EXPR_LITERAL, literal = 93: Literal(type = LITERAL_INT, intValue = 2)
+                        )
+                    ),
+                    95: AssignmentStatement(
+                        variable = 95: Variable(
+                            identifier = 94: Identifier(name = y),
+                            subscripts = null (simple variable)
+                        ),
+                        value = 94: Expression(
+                            category = EXPR_OPERATOR, op = 94: Operator(
+                                type = 8, operand = 94: Expression(
+                                    category = EXPR_OPERATOR, op = 94: Operator(
+                                        type = 9, operand = 94: Expression(
+                                            category = EXPR_OPERATOR, op = 94: Operator(
+                                                type = 2, operand = 94: Expression(
+                                                    category = EXPR_OPERATOR, op = 94: Operator(
+                                                        type = 4, operand = 94: Expression(
+                                                            category = EXPR_OPERATOR, op = 94: Operator(
+                                                                type = 5, operand = 94: Expression(
+                                                                    category = EXPR_VARIABLE, variable = 94: Variable(
+                                                                        identifier = 94: Identifier(name = y),
+                                                                        subscripts = null (simple variable)
+                                                                    )
+                                                                ),
+                                                                rightOperand = 94: Expression(
+                                                                    category = EXPR_LITERAL, literal = 94: Literal(type = LITERAL_INT, intValue = 4)
+                                                                )
+                                                            )
+                                                        ),
+                                                        rightOperand = 94: Expression(
+                                                            category = EXPR_LITERAL, literal = 94: Literal(type = LITERAL_INT, intValue = 324)
+                                                        )
+                                                    )
+                                                ),
+                                                rightOperand = 94: Expression(
+                                                    category = EXPR_LITERAL, literal = 94: Literal(type = LITERAL_INT, intValue = 1)
+                                                )
+                                            )
+                                        ),
+                                        rightOperand = 94: Expression(
+                                            category = EXPR_VARIABLE, variable = 94: Variable(
+                                                identifier = 94: Identifier(name = z),
+                                                subscripts = null (simple variable)
+                                            )
+                                        )
+                                    )
+                                ),
+                                rightOperand = 94: Expression(
+                                    category = EXPR_LITERAL, literal = 94: Literal(type = LITERAL_INT, intValue = 5)
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            97: AssignmentStatement(
+                variable = 97: Variable(
+                    identifier = 97: Identifier(name = message),
+                    subscripts = null (simple variable)
+                ),
+                value = 97: Expression(
+                    category = EXPR_VARIABLE, variable = 97: Variable(
+                        identifier = 97: Identifier(name = text),
+                        subscripts = null (simple variable)
+                    )
+                )
+            ),
+            98: CallStatement(
+                invocation = 98: ProgramInvocation(
+                    name = 98: Identifier(name = printline),
+                    arguments = 98: ExpressionList(
+                        98: Expression(
+                            category = EXPR_VARIABLE, variable = 98: Variable(
+                                identifier = 98: Identifier(name = message),
+                                subscripts = null (simple variable)
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)

@@ -1,0 +1,192 @@
+program TextFun(input, output);
+    const NAME_LENGTH = 24;
+    const MAX_COMBATANTS = 3;
+    const MAX_TEAMS = 2;
+    const RAND_MAX = 2147483647;
+    type Combatant = record
+        name : array [1 .. NAME_LENGTH] of char;
+        hp, maxHP : integer;
+        atk : integer;
+        def : integer;
+        defending : integer;
+        team : integer;
+    end;
+    
+    var combatants : array [1 .. MAX_COMBATANTS] of Combatant;
+    var combatantCount : integer;
+    var teamCount : integer;
+    var turn : integer;
+    
+    function min(x, y : integer) : integer;
+    begin
+        if x < y then min := x
+        else min := y
+    end;
+
+    function max(x, y : integer) : integer;
+    begin
+        if x > y then max := x
+        else max := y
+    end;    
+    
+    function CombatantAdd(name : array [1 .. NAME_LENGTH] of char, hp : integer, atk : integer, def : integer, team : integer) : integer;
+    begin
+        if combatantCount <= MAX_COMBATANTS then begin
+            combatantCount := combatantCount + 1;
+            combatants[combatantCount].name := name;
+            combatants[combatantCount].hp := hp;
+            combatants[combatantCount].maxHP := hp;
+            combatants[combatantCount].atk := atk;
+            combatants[combatantCount].def := def;
+            
+            combatants[combatantCount].team := team;
+            
+            CombatantAdd := combatantCount
+        end else begin
+            writestr('Too many combatants active (Limited to a max of ');
+            writeint(MAX_COMBATANTS);
+            writestr(' at once).');
+            
+            CombatantAdd := -1
+        end
+    end;
+    
+    function CombatantPickTarget(combatantIndex : integer) : integer;
+        var result : integer;
+    begin
+        result := tointeger((random() / (RAND_MAX + 1.0)) * MAX_COMBATANTS) + 1;
+        while (result = combatantIndex) + (combatants[result].team = combatants[combatantIndex].team) + (combatants[result].hp = 0) do begin
+            result := tointeger((random() / (RAND_MAX + 1.0)) * MAX_COMBATANTS) + 1
+        end;
+        
+        
+        CombatantPickTarget := result
+    end;
+    
+    procedure CombatantAttack(combatantIndex, targetIndex : integer);
+        var damage : integer;
+    begin
+        writestr('    ');
+        writestr(combatants[combatantIndex].name);
+        writestr(' attacks ');
+        writestr(combatants[targetIndex].name);
+        writestr('!\n');
+        
+        if combatants[targetIndex].defending then begin
+            writestr('    ');
+            writestr('But ');
+            writestr(combatants[targetIndex].name);
+            writestr(' blocked the attack');
+            writestr('!\n')
+        end else begin
+            damage := max(combatants[combatantIndex].atk - combatants[targetIndex].def + tointeger((random() / (RAND_MAX + 1.0)) * 5), 0);
+            writestr('    ');
+            writestr('Dealt ');
+            writeint(damage);
+            writestr(' damage to ');
+            writestr(combatants[targetIndex].name);
+            writestr('.\n');
+            
+            combatants[targetIndex].hp := combatants[targetIndex].hp - damage;
+            if combatants[targetIndex].hp <= 0 then begin
+                combatants[targetIndex].hp := 0;
+                writestr('A fatal blow! ');
+                writestr(combatants[targetIndex].name);
+                writestr(' fell.\n')
+            end
+        end
+    end;
+    
+    procedure CombatantDefend(combatantIndex : integer);
+    begin
+        combatants[combatantIndex].defending := true;
+        writestr('    ');
+        writestr(combatants[combatantIndex].name);
+        writestr(' is defending.\n')
+    end;
+    
+    procedure CombatantUpdate(combatantIndex : integer);
+        var targetIndex : integer;
+        var roll : integer;
+    begin
+        combatants[combatantIndex].defending := false;
+        
+        roll := tointeger((random() / (RAND_MAX + 1.0)) * 20);
+        
+        if (roll < 10) then begin
+            targetIndex := CombatantPickTarget(combatantIndex);
+            CombatantAttack(combatantIndex, targetIndex)
+        end else {if (roll >= 10) and (roll < 20) then} begin
+            CombatantDefend(combatantIndex)
+        end {else if (roll >= 20) and (roll < 30) then begin
+            targetIndex := CombatantPickTarget(combatantIndex);
+            CombatantDance(combatantIndex, targetIndex)
+        end else if (roll >= 30) and (roll < 40) then begin
+            CombatantSleep(combatantIndex)
+        end else if (roll >= 40) and (roll < 50) then begin
+            CombatantEatThing(combatantIndex)
+        end}
+    end;
+    
+    procedure CountLiving(standings : array [1 .. MAX_TEAMS] of integer);
+        var i : integer;
+    begin
+        for i := 1 to teamCount do begin
+            standings[i] := 0
+        end;
+        for i := 1 to combatantCount do begin
+            if combatants[i].hp > 0 then
+                standings[combatants[i].team] := standings[combatants[i].team] + 1
+        end
+    end;
+    
+    function BattleDone() : integer;
+        var i : integer;
+        var standings : array [1 .. MAX_TEAMS] of integer;
+        var done : integer;
+    begin
+        done := false;
+        CountLiving(standings);
+        for i := 1 to teamCount do begin
+            if standings[i] = 0 then
+                done := true
+        end;
+        
+        BattleDone := done
+    end;
+    
+    procedure RunBattle();
+        var i : integer;
+    begin
+        while not BattleDone() do begin
+            for i := 1 to combatantCount do begin
+                if (not BattleDone()) and (combatants[i].hp > 0) then begin
+                    writestr(combatants[i].name);
+                    writestr('\'s turn!\n');
+                    CombatantUpdate(i)
+                end
+            end;
+            writestr('\n');
+            for i := 1 to 50000 do begin
+            end
+        end
+    end;
+begin
+    { Nobody in battle yet. }
+    combatantCount := 0;
+    { Two teams. }
+    teamCount := 2;
+    { Add Team #1 }
+    CombatantAdd('Bob', 300, 30, 4, 1);
+    { Add Team #2 }
+    CombatantAdd('Slime', 50, 12, 2, 2);
+    CombatantAdd('Evil Vitamin Salesman', 200, 23, 15, 2);
+    
+    { Fight it out! }
+    RunBattle();
+    
+    if combatants[1].hp = 0 then
+        writestr('Game over\n')
+    else
+        writestr('Victory!\n')
+end.

@@ -1,0 +1,359 @@
+L0:
+# Initialize main frame pointer.
+fp = sp - 2500
+# Return address info is always generated, but has no purpose in main.
+*(fp) = 0
+*(fp - 4) = 0
+*(fp - 8) = 0
+*(fp - 12) = 0 # There is no old nesting entry for the main function (since it cannot call itself recursively).
+nest[0] = fp # Set nesting entry for this function to new activation record.
+*(fp - -16) = 0 # No t1 value worth caring about yet.
+*(fp - -20) = 0 # No t2 value worth caring about yet.
+*(fp - -24) = 0 # No t3 value worth caring about yet.
+*(fp - -28) = 0 # No t4 value worth caring about yet.
+*(fp - -32) = 0 # No t5 value worth caring about yet.
+*(fp - -36) = 0 # No t6 value worth caring about yet.
+*(fp - -40) = 0 # No t7 value worth caring about yet.
+j L1
+L2:
+# Function printchar
+*(fp - 8) = ra # Save the caller return address RIGHT NOW.
+j L3
+L3:
+# Return from function, and restore old calling stack.
+t1 = *(fp - -16) # Restore t1.
+t2 = *(fp - -20) # Restore t2.
+t3 = *(fp - -24) # Restore t3.
+t4 = *(fp - -28) # Restore t4.
+t5 = *(fp - -32) # Restore t5.
+t6 = *(fp - -36) # Restore t6.
+t7 = *(fp - -40) # Restore t7.
+nest[1] = *(fp - 12) # restore nesting entry
+ra = *(fp - 8) # load return address
+sp = *(fp - 4) # shrink stack
+sp = *(fp) # restore frame pointer
+return
+
+L4:
+# Function printstring
+*(fp - 8) = ra # Save the caller return address RIGHT NOW.
+j L5
+L5:
+t1 = 1
+*(fp - 1072) = t1 # Store temp
+t1 = nest[8] # Get stackframe for printstring
+t1 = t1 - 1068 # Local: &x
+t2 = *(fp - 1072)
+t1 = *(t2) # Store value into a variable
+t1 = 2
+*(fp - 1076) = t1 # Store temp
+t1 = nest[0] # Get stackframe for thisonecompiles
+t1 = t1 - 1128 # Local: &y
+t2 = *(fp - 1076)
+t1 = *(t2) # Store value into a variable
+# Return from function, and restore old calling stack.
+t1 = *(fp - -16) # Restore t1.
+t2 = *(fp - -20) # Restore t2.
+t3 = *(fp - -24) # Restore t3.
+t4 = *(fp - -28) # Restore t4.
+t5 = *(fp - -32) # Restore t5.
+t6 = *(fp - -36) # Restore t6.
+t7 = *(fp - -40) # Restore t7.
+nest[2] = *(fp - 12) # restore nesting entry
+ra = *(fp - 8) # load return address
+sp = *(fp - 4) # shrink stack
+sp = *(fp) # restore frame pointer
+return
+
+L6:
+# Function printline
+*(fp - 8) = ra # Save the caller return address RIGHT NOW.
+j L7
+L7:
+# Call function printstring.
+*(sp) = fp # Old frame pointer
+*(sp - 4) = sp # Old stack pointer
+*(sp - 8) = 0 # Return address (to be filled on function entry)
+*(sp - 12) = nest[2] # Save old nesting entry. 
+nest[2] = t0 # Set nesting entry for this function to new activation record. 
+*(sp - -16) = t1 # Save t1 value
+*(sp - -20) = t2 # Save t2 value
+*(sp - -24) = t3 # Save t3 value
+*(sp - -28) = t4 # Save t4 value
+*(sp - -32) = t5 # Save t5 value
+*(sp - -36) = t6 # Save t6 value
+*(sp - -40) = t7 # Save t7 value
+fp = sp # update frame pointer
+sp -= 1132 # expand stack
+call L4 # Save return address and jump to function label.
+# Call function printchar.
+*(sp) = fp # Old frame pointer
+*(sp - 4) = sp # Old stack pointer
+*(sp - 8) = 0 # Return address (to be filled on function entry)
+*(sp - 12) = nest[1] # Save old nesting entry. 
+nest[1] = t0 # Set nesting entry for this function to new activation record. 
+*(sp - -16) = t1 # Save t1 value
+*(sp - -20) = t2 # Save t2 value
+*(sp - -24) = t3 # Save t3 value
+*(sp - -28) = t4 # Save t4 value
+*(sp - -32) = t5 # Save t5 value
+*(sp - -36) = t6 # Save t6 value
+*(sp - -40) = t7 # Save t7 value
+fp = sp # update frame pointer
+sp -= 52 # expand stack
+call L2 # Save return address and jump to function label.
+# Return from function, and restore old calling stack.
+t1 = *(fp - -16) # Restore t1.
+t2 = *(fp - -20) # Restore t2.
+t3 = *(fp - -24) # Restore t3.
+t4 = *(fp - -28) # Restore t4.
+t5 = *(fp - -32) # Restore t5.
+t6 = *(fp - -36) # Restore t6.
+t7 = *(fp - -40) # Restore t7.
+nest[3] = *(fp - 12) # restore nesting entry
+ra = *(fp - 8) # load return address
+sp = *(fp - 4) # shrink stack
+sp = *(fp) # restore frame pointer
+return
+
+L8:
+# Function factorial
+*(fp - 8) = ra # Save the caller return address RIGHT NOW.
+j L9
+L10:
+# Function fact
+*(fp - 8) = ra # Save the caller return address RIGHT NOW.
+j L11
+L11:
+# Return from function, and restore old calling stack.
+t1 = *(fp - -16) # Restore t1.
+t2 = *(fp - -20) # Restore t2.
+t3 = *(fp - -24) # Restore t3.
+t4 = *(fp - -28) # Restore t4.
+t5 = *(fp - -32) # Restore t5.
+t6 = *(fp - -36) # Restore t6.
+t7 = *(fp - -40) # Restore t7.
+nest[5] = *(fp - 12) # restore nesting entry
+ra = *(fp - 8) # load return address
+sp = *(fp - 4) # shrink stack
+sp = *(fp) # restore frame pointer
+return
+
+L9:
+*(fp - 52) = t1 # Store temp
+t1 = nest[16] # Get stackframe for factorial
+t1 = *(t1 - 48) # Argument: &*result
+t2 = *(fp - 52)
+t1 = *(t2) # Store value into a variable
+# Return from function, and restore old calling stack.
+t1 = *(fp - -16) # Restore t1.
+t2 = *(fp - -20) # Restore t2.
+t3 = *(fp - -24) # Restore t3.
+t4 = *(fp - -28) # Restore t4.
+t5 = *(fp - -32) # Restore t5.
+t6 = *(fp - -36) # Restore t6.
+t7 = *(fp - -40) # Restore t7.
+nest[4] = *(fp - 12) # restore nesting entry
+ra = *(fp - 8) # load return address
+sp = *(fp - 4) # shrink stack
+sp = *(fp) # restore frame pointer
+return
+
+L12:
+# Function passingarrayfunc
+*(fp - 8) = ra # Save the caller return address RIGHT NOW.
+j L13
+L13:
+# Return from function, and restore old calling stack.
+t1 = *(fp - -16) # Restore t1.
+t2 = *(fp - -20) # Restore t2.
+t3 = *(fp - -24) # Restore t3.
+t4 = *(fp - -28) # Restore t4.
+t5 = *(fp - -32) # Restore t5.
+t6 = *(fp - -36) # Restore t6.
+t7 = *(fp - -40) # Restore t7.
+nest[6] = *(fp - 12) # restore nesting entry
+ra = *(fp - 8) # load return address
+sp = *(fp - 4) # shrink stack
+sp = *(fp) # restore frame pointer
+return
+
+L1:
+t1 = 1
+*(fp - 2352) = t1 # Store temp
+t1 = 4
+*(fp - 2364) = t1 # Store temp
+t1 = 3
+*(fp - 2368) = t1 # Store temp
+t2 = *(fp - 2364)
+t3 = *(fp - 2364)
+t1 = t2 * t3
+*(fp - 2360) = t1 # Store temp
+t1 = 2
+*(fp - 2372) = t1 # Store temp
+t2 = *(fp - 2360)
+t3 = *(fp - 2360)
+t1 = t2 + t3
+*(fp - 2356) = t1 # Store temp
+t2 = *(fp - 2352)
+t3 = *(fp - 2352)
+t1 = t2 / t3
+*(fp - 2348) = t1 # Store temp
+t1 = nest[0] # Get stackframe for thisonecompiles
+t1 = t1 - 1124 # Local: &x
+t2 = *(fp - 2348)
+t1 = *(t2) # Store value into a variable
+t1 = nest[0] # Get stackframe for thisonecompiles
+t1 = t1 - 1124 # Local: &x
+*(fp - 2380) = t1 # Store temp
+t1 = 3
+*(fp - 2384) = t1 # Store temp
+t2 = *(fp - 2380)
+t2 = *(t2)
+t3 = *(fp - 2380)
+t3 = *(t3)
+t1 = t2 >= t3 # = not (t2 < t3)
+*(fp - 2376) = t1 # Store temp
+t1 = nest[0] # Get stackframe for thisonecompiles
+t1 = t1 - 1124 # Local: &x
+t2 = *(fp - 2376)
+t1 = *(t2) # Store value into a variable
+t1 = 4
+*(fp - 2396) = t1 # Store temp
+# Calculate index expression for subscript 0 on variable. 
+t1 = 2
+*(fp - 2388) = t1 # Store temp
+t1 = nest[0] # Get stackframe for thisonecompiles
+t1 = t1 - 44 # Local: &polygons
+# Array index 
+t2 = *(fp - 2388)
+t2 += -1 # Load index. We need to reposition relative to the actual memory location. 
+t3 = 0 # lower bound = 0
+t4 = 5 # upper bound = len (exclusive)
+if (t2 < t3) jmp IndexOutOfBounds # i < 0? error.
+if (t2 >= t4) jmp IndexOutOfBounds # i >= len? error.
+t3 = 180 # t3 = sizeof(array subtype).
+t2 *= t3 # t2 = t2 * sizeof(array subtype).
+t1 += t2 # base += t2
+# Record attribute 
+t1 += 0 # Get attribute vertices
+# Array index 
+t2 = *(fp - 2392)
+t2 += 5 # Load index. We need to reposition relative to the actual memory location. 
+t3 = 0 # lower bound = 0
+t4 = 15 # upper bound = len (exclusive)
+if (t2 < t3) jmp IndexOutOfBounds # i < 0? error.
+if (t2 >= t4) jmp IndexOutOfBounds # i >= len? error.
+t3 = 12 # t3 = sizeof(array subtype).
+t2 *= t3 # t2 = t2 * sizeof(array subtype).
+t1 += t2 # base += t2
+# Record attribute 
+t1 += 0 # Get attribute x
+t2 = *(fp - 2396)
+t1 = *(t2) # Store value into a variable
+t1 = "This is a horrible 'Hello world' in Pish"
+*(fp - 2492) = t1 # Store temp
+t1 = nest[0] # Get stackframe for thisonecompiles
+t1 = t1 - 1144 # Local: &message
+t2 = *(fp - 2492)
+# Copy 41 words into t1 from t2
+t1 = *(t2-0)
+t1 -= 4
+t1 = *(t2--4)
+t1 -= 4
+t1 = *(t2--8)
+t1 -= 4
+t1 = *(t2--12)
+t1 -= 4
+t1 = *(t2--16)
+t1 -= 4
+t1 = *(t2--20)
+t1 -= 4
+t1 = *(t2--24)
+t1 -= 4
+t1 = *(t2--28)
+t1 -= 4
+t1 = *(t2--32)
+t1 -= 4
+t1 = *(t2--36)
+t1 -= 4
+t1 = *(t2--40)
+t1 -= 4
+t1 = *(t2--44)
+t1 -= 4
+t1 = *(t2--48)
+t1 -= 4
+t1 = *(t2--52)
+t1 -= 4
+t1 = *(t2--56)
+t1 -= 4
+t1 = *(t2--60)
+t1 -= 4
+t1 = *(t2--64)
+t1 -= 4
+t1 = *(t2--68)
+t1 -= 4
+t1 = *(t2--72)
+t1 -= 4
+t1 = *(t2--76)
+t1 -= 4
+t1 = *(t2--80)
+t1 -= 4
+t1 = *(t2--84)
+t1 -= 4
+t1 = *(t2--88)
+t1 -= 4
+t1 = *(t2--92)
+t1 -= 4
+t1 = *(t2--96)
+t1 -= 4
+t1 = *(t2--100)
+t1 -= 4
+t1 = *(t2--104)
+t1 -= 4
+t1 = *(t2--108)
+t1 -= 4
+t1 = *(t2--112)
+t1 -= 4
+t1 = *(t2--116)
+t1 -= 4
+t1 = *(t2--120)
+t1 -= 4
+t1 = *(t2--124)
+t1 -= 4
+t1 = *(t2--128)
+t1 -= 4
+t1 = *(t2--132)
+t1 -= 4
+t1 = *(t2--136)
+t1 -= 4
+t1 = *(t2--140)
+t1 -= 4
+t1 = *(t2--144)
+t1 -= 4
+t1 = *(t2--148)
+t1 -= 4
+t1 = *(t2--152)
+t1 -= 4
+t1 = *(t2--156)
+t1 -= 4
+t1 = *(t2--160)
+t1 -= 4
+# Call function printline.
+*(sp) = fp # Old frame pointer
+*(sp - 4) = sp # Old stack pointer
+*(sp - 8) = 0 # Return address (to be filled on function entry)
+*(sp - 12) = nest[3] # Save old nesting entry. 
+nest[3] = t0 # Set nesting entry for this function to new activation record. 
+*(sp - -16) = t1 # Save t1 value
+*(sp - -20) = t2 # Save t2 value
+*(sp - -24) = t3 # Save t3 value
+*(sp - -28) = t4 # Save t4 value
+*(sp - -32) = t5 # Save t5 value
+*(sp - -36) = t6 # Save t6 value
+*(sp - -40) = t7 # Save t7 value
+fp = sp # update frame pointer
+sp -= 1076 # expand stack
+call L6 # Save return address and jump to function label.
+# Exit the program.
+exit

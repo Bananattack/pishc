@@ -1,0 +1,20 @@
+program ErrorFour ( input, output );
+    const
+        START = 1;
+        FINISH = 3;
+    type
+        Point = array [FINISH .. START] of integer; { Invalid boundary, because lower > upper bound. }
+        
+        EmailString = array[1 .. 64] of char;
+        Student = record
+            id : integer;
+            name : array[1 .. 20] of char;
+            email : EmailString;
+        end;
+    var
+        pt : array[START .. FINISH] of integer;
+        stud : Student;
+begin
+    pt[stud] { Can't index by record, fool! } := 5;
+    START := 7 { Can't reassign a constant. }
+end.

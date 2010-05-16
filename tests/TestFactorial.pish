@@ -1,0 +1,44 @@
+{ This program tests variables, if/else statements, for statements, recursion, pass-by-refence, and return values from functions. }
+program TestRecursion ( input, output );
+        var
+                calc : integer;
+                num : integer;
+
+        procedure factorial ( ret, n : integer );
+        begin
+                if( ( n = 0 ) + ( n = 1 ) ) then
+                        ret := 1
+                else begin
+                        factorial ( ret, n - 1 );
+                        ret := ret * n
+                end
+        end;
+        
+        
+        function fibonacci ( n : integer ) : integer;
+        begin
+                if ( ( n = 1 ) + ( n = 2 ) ) then
+                        fibonacci := 1
+                else
+                        fibonacci := fibonacci ( n - 1 ) + fibonacci ( n - 2 )
+        end;
+
+        var x : integer;
+
+begin
+        calc := 0;
+        { Factorial. Test of pass-by-reference }
+        for num := 1 to 10 do begin
+            factorial ( calc, num );
+            writeint ( calc );
+            writechar(' ')
+        end;
+        writechar('\n');
+        
+        { Fibonacci. Test of return values and for loops. }
+        for num := 1 to 10 do begin
+            writeint (fibonacci(num));
+            writechar(' ')
+        end;            
+        writechar('\n')
+end.

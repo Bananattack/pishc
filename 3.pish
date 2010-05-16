@@ -1,0 +1,13 @@
+program ErrorThree ( input, output );
+    var
+        X : real;
+        ch : char;
+begin
+    X := 1;
+    ch := 'a';
+    if (X / ch) mod 2 then 
+        writechar ( 'O' )
+    else
+        writechar ( 'FAILED' )
+    
+end.

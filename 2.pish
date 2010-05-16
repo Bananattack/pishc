@@ -1,0 +1,9 @@
+program TestError2 ( input, output );
+    const
+        MOO = ERROR; { Moo refers to a constant that doesn't exist yet }
+        ERROR = 20;
+    var
+        BAD_VAR : intgr; { Typo, eek. }
+begin
+    BAD_VAR := 1 { Hey, I'm not defined because there was an error in my definition }
+end.

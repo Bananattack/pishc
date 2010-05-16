@@ -1,0 +1,40 @@
+program TestTrident ( input, output );
+        const
+                TINE_STARS = 10;
+                TINE_WIDTH = 40;
+                HANDLE_LENGTH = 10;
+
+        var
+                x, y, mid : integer;
+begin
+        mid := TINE_WIDTH DIV 2;
+
+        for x := 0 to TINE_STARS do begin
+                for y := 0 to TINE_WIDTH do begin
+                        if ( ( y = 0 ) + ( y = mid ) + ( y = TINE_WIDTH ) ) then
+                                writechar ( '*' )
+                        else
+                                writechar ( ' ' )
+                end;
+
+                writechar ( '\n' )
+        end;
+
+        for x := 0 to TINE_WIDTH do begin
+                writechar ( '*' )
+        end;
+
+        writechar ( '\n' );
+
+        for x := 0 to HANDLE_LENGTH do begin
+                for y := 0 to TINE_WIDTH do begin
+                        if ( y = mid ) then
+                                writechar ( '*' )
+                        else
+                                writechar ( ' ' )
+                end;
+
+                writechar ( '\n' )
+        end
+
+end.

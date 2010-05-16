@@ -1,0 +1,7 @@
+program TestHell(input, output);
+var a, b, c : INTEGER;
+begin
+    a := 5;
+    b$; { Invalid character and incomplete statement after invalid character }
+    c := 25; { <-- Dangling semi-colon. Cannot appear at end of statement list. }
+end.

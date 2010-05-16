@@ -1,0 +1,11 @@
+program Adder(input, output);
+    var a, b : integer;
+begin
+    while 1 do begin 
+        readint(a);
+        readint(b);
+        writestr('--> ');
+        writeint(a + b);
+        writestr('\n')
+    end
+end.

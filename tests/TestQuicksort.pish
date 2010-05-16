@@ -1,0 +1,66 @@
+{ This program tests nested functions (accessing outer scope, shadowing declarations), recursion, arrays, reals, pass-by-reference, and library functions }
+program TestQuicksort ( input, output );
+    var
+        unsorted : array [ 1 .. 30 ] of real;
+        left, right, pivotIndex, x : integer;
+
+
+    procedure quicksort ( left, right : integer );
+        var
+            pivot : integer;
+            ret : integer;
+            part : integer;
+        procedure partition (left, right, pivotIndex : integer );
+            var
+                pivotValue : real;
+                x : integer;
+                temp : real;
+        begin
+            pivotValue := unsorted [ pivotIndex ];
+            unsorted [ pivotIndex ] := unsorted [ right ];
+            unsorted [ right ] := pivotValue;
+
+            part := left;
+
+            for x := left to right - 1 do begin
+                    if ( unsorted [ x ] <= pivotValue ) then begin
+                            temp := unsorted [ x ];
+                            unsorted [ x ] := unsorted [ part ];
+                            unsorted [ part ] := temp;
+                            part := part + 1
+                    end
+            end;
+
+            temp := unsorted [ part ];
+            unsorted [ part ] := unsorted [ right ];
+            unsorted [ right ] := temp
+        end;
+    begin
+        if ( right > left ) then begin
+            pivot := ( left + right ) DIV 2;
+            partition ( left, right, pivot );
+            quicksort ( left, part - 1 );
+            quicksort ( part + 1, right )
+        end
+    end;
+begin
+    for x := 1 to 30 do begin
+        unsorted[x] := (random() mod 10000) / 100.0; { Random floats. } 
+        writeint ( x );
+        writechar ( ':' );
+        writereal ( unsorted [ x ] );
+        writechar ( '\n' )
+    end;
+    
+    quicksort ( 1, 30 );
+
+    writechar ( '\n' );
+
+    for x := 1 to 30 do begin
+        writeint ( x );
+        writechar ( ':' );
+        writereal ( unsorted [ x ] );
+        writechar ( '\n' )
+    end
+            
+end.
